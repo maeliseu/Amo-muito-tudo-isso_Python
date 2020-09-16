@@ -20,25 +20,11 @@ class Opcao:
         self.tempo = kwarg.get("tempo", 0)
         self.valor = kwarg.get("valor", 0)
 
-
-# class Espera:
-#     def __init__(self, *args, **kwarg):
-#         self.nome = kwarg.get("nome", "")
-#         self.tempo = kwarg.get("tempo", 0)
-#         self.numero = kwarg.get("numero", 0)
-
-
 fila_normal = []
 fila_pref = []
-
 fila_espera = []
-
 opcao = []
-
 numero = 0
-
-
-
 # 
 # opções
 # 
@@ -74,19 +60,16 @@ def novo_pedido(opcoes, cliente):
 
 
 def printlistas():
-    print ("\n")
     print ("###################################################")
     print ("lista fila preferencial")
     for i in fila_pref:
         print(" - Nome do CLiente : {0}".format(i.nome))
 
-    # print ("\n")
 
     print ("lista fila normal")
     for i in fila_normal:
         print(" - Nome do CLiente : {0}".format(i.nome))
 
-    # print ("\n")
 
     print ("lista espera")
     for i in fila_espera:
@@ -101,8 +84,6 @@ def chama():
     else:
         return fila_normal[0]
 
-
-
 # 
 # entrada de dados e processamentos
 # 
@@ -115,28 +96,26 @@ novo_cli(nome = "Eitor", idade =  18)
 novo_cli(nome = "Maria", idade =  68)
 novo_cli(nome = "Sidney", idade =  69)
 
-#
-# lista filas
-#
-printlistas()
+
+printlistas()  # Printa as  filas
 
 #
 # NOVO pedido
 #
-davez = chama()
+davez = chama() # pega o primeiro da fila pref se não tiver pega o primeiro da normal
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[0], opcao[1]], cliente = davez)
 
-printlistas()
+printlistas() # Printa as  filas
 
 davez = chama()
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[3]], cliente = davez)
 
-printlistas()
+printlistas() # Printa as  filas
 
 davez = chama()
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[1], opcao[2], opcao[0]], cliente = davez)
 
-printlistas()
+printlistas() # Printa as  filas
