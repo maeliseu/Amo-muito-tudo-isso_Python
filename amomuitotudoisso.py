@@ -35,19 +35,19 @@ class Voto:
         self.bom = kwarg.get("bom",0)
         self.otimo = kwarg.get("otimo",0)
     
-    def pessimo():
+    def votopessimo(self):
         self.pessimo = self.pessimo + 1
 
-    def ruim():
+    def votoruim(self):
         self.ruim = self.ruim + 1
 
-    def mediano():
+    def votomediano(self):
         self.mediano = self.mediano + 1
 
-    def bom():
+    def votobom(self):
         self.bom = self.bom + 1
 
-    def otimo():
+    def votootimo(self):
         self.otimo = self.otimo + 1
 
 # 
@@ -132,22 +132,22 @@ printlistas()  # Printa as  filas
 davez = chama() # pega o primeiro da fila pref se não tiver pega o primeiro da normal
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[0], opcao[1]], cliente = davez)
-voto.bom
+voto.votobom()
 
 printlistas() # Printa as  filas
 
 davez = chama()
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[3]], cliente = davez)
-voto.otimo
+voto.votootimo()
 
 printlistas() # Printa as  filas
 
 davez = chama()
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[1], opcao[2], opcao[0]], cliente = davez)
-voto.bom
+voto.votobom()
 
 printlistas() # Printa as  filas
 
-print ("péssimo {0}, ruim {1}, mediano {2}, bom {3} e ótimo {4}".format(voto.pessimo,))
+print ("péssimo {0}, ruim {1}, mediano {2}, bom {3} e ótimo {4}".format(voto.pessimo, voto.ruim, voto.mediano, voto.bom, voto.otimo))
