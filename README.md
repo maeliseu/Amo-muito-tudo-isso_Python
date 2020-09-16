@@ -57,3 +57,7 @@ lista espera
  - Nome do CLiente : Sidney - pedido numero: 2 - tempo: 8 - total: 30
  - Nome do CLiente : Marcelo - pedido numero: 3 - tempo: 8 - total: 35
 
+
+Os totais de Votos :
+
+péssimo 0, ruim 0, mediano 0, bom 2 e ótimo 1

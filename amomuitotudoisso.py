@@ -150,4 +150,4 @@ voto.votobom()
 
 printlistas() # Printa as  filas
 
-print ("péssimo {0}, ruim {1}, mediano {2}, bom {3} e ótimo {4}".format(voto.pessimo, voto.ruim, voto.mediano, voto.bom, voto.otimo))
+print ("Os totais de Votos :\npéssimo {0}, ruim {1}, mediano {2}, bom {3} e ótimo {4}".format(voto.pessimo, voto.ruim, voto.mediano, voto.bom, voto.otimo))
