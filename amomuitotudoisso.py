@@ -47,11 +47,11 @@ opcao.append(Opcao(op_numero = 2, nome = "SUCO", tempo = 1, valor = 5))
 opcao.append(Opcao(op_numero = 3, nome = "SOBREMESA", tempo = 1, valor = 10))
 opcao.append(Opcao(op_numero = 4, nome = "HAMBURGUER+SUCO+SOBREMESA", tempo = 8, valor = 30))
 
-def novo_cli(nome, idade, **n_pedido):
+def novo_cli(nome, idade):
     if idade <= 65:
-        fila_normal.append(Cliente(nome = nome, idade = idade, n_pedido = n_pedido.get("n_pedido", None)))
+        fila_normal.append(Cliente(nome = nome, idade = idade))
     else:
-        fila_pref.append(Cliente(nome = nome, idade = idade, n_pedido = n_pedido.get("n_pedido", None)))
+        fila_pref.append(Cliente(nome = nome, idade = idade))
 
   
 
@@ -95,6 +95,11 @@ def printlistas():
     print ("\n")
 
 
+def chama():
+    if (fila_pref):
+        return fila_pref[0]
+    else:
+        return fila_normal[0]
 
 
 
@@ -118,10 +123,20 @@ printlistas()
 #
 # NOVO pedido
 #
-novo_pedido(opcoes = [opcao[0], opcao[1]], cliente = fila_pref[0])
+davez = chama()
+print ("+Fazendo Pedido para : {0}".format(davez.nome))
+novo_pedido(opcoes = [opcao[0], opcao[1]], cliente = davez)
 
 printlistas()
 
-novo_pedido(opcoes = [opcao[3]], cliente = fila_pref[0])
+davez = chama()
+print ("+Fazendo Pedido para : {0}".format(davez.nome))
+novo_pedido(opcoes = [opcao[3]], cliente = davez)
+
+printlistas()
+
+davez = chama()
+print ("+Fazendo Pedido para : {0}".format(davez.nome))
+novo_pedido(opcoes = [opcao[1], opcao[2], opcao[0]], cliente = davez)
 
 printlistas()
