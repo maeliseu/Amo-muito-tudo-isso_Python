@@ -9,7 +9,7 @@ class Pedido:
     def __init__(self, *args, **kwarg):
         self.numero = kwarg.get("numero", 0)
         self.opcao = kwarg.get("opcao", {})
-        self.tempo = kwarg.get("tempo", 0)
+        self.tempot = kwarg.get("tempot", 0)
         self.vtotal = kwarg.get("vtotal", 0)
         self.cliente = kwarg.get("cliente", {})
 
@@ -65,7 +65,7 @@ def novo_pedido(opcoes, cliente):
         valortotal = valortotal + i.valor
     
     Cliente.n_pedido = numero
-    fila_espera.append(Pedido(numero = numero, opcao = opcoes, tempo = totaltempo, vtotal = valortotal, cliente = cliente))
+    fila_espera.append(Pedido(numero = numero, opcao = opcoes, tempot = totaltempo, vtotal = valortotal, cliente = cliente))
 
     if cliente.idade <= 65:
         fila_normal.remove(cliente)
@@ -73,7 +73,26 @@ def novo_pedido(opcoes, cliente):
         fila_pref.remove(cliente)
 
 
+def printlistas():
+    print ("\n")
+    print ("###################################################")
+    print ("lista fila preferencial")
+    for i in fila_pref:
+        print(" - Nome do CLiente : {0}".format(i.nome))
 
+    # print ("\n")
+
+    print ("lista fila normal")
+    for i in fila_normal:
+        print(" - Nome do CLiente : {0}".format(i.nome))
+
+    # print ("\n")
+
+    print ("lista espera")
+    for i in fila_espera:
+        print(" - Nome do CLiente : {0} - pedido numero: {1} - tempo: {2} - total: {3}".format(i.cliente.nome, i.numero, i.tempot, i.vtotal))
+        
+    print ("\n")
 
 
 
@@ -94,33 +113,15 @@ novo_cli(nome = "Sidney", idade =  69)
 #
 # lista filas
 #
-print ("\n")
-
-print ("lista fila preferencial")
-for i in fila_pref:
-    print(" - Nome do CLiente : {0}".format(i.nome))
-
-print ("\n")
-
-print ("lista fila normal")
-for i in fila_normal:
-    print(" - Nome do CLiente : {0}".format(i.nome))
-
-print ("\n")
-
-print ("lista espera")
-for i in fila_espera:
-    print(" - Nome do CLiente : {0}".format(i.nome))
-    
-print ("\n")
+printlistas()
 
 #
 # NOVO pedido
 #
-novo_pedido(opcoes = [opcao[0], opcao[2]], cliente = fila_pref[0])
+novo_pedido(opcoes = [opcao[0], opcao[1]], cliente = fila_pref[0])
 
-print ("lista espera")
-for i in fila_espera:
-    print(" - Nome do CLiente : {0} - pedido numero: {1}".format(i.cliente.nome, i.numero))
-    
-print ("\n")
+printlistas()
+
+novo_pedido(opcoes = [opcao[3]], cliente = fila_pref[0])
+
+printlistas()
