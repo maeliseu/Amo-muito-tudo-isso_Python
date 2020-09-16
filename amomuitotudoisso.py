@@ -2,8 +2,7 @@ class Cliente:
     def __init__(self, *args, **kwarg):
         self.nome = kwarg.get("nome", "")
         self.idade = kwarg.get("idade", 0)
-        self.n_pedido = kwarg.get("n_pedido", {})
-
+        
 
 class Pedido:
     def __init__(self, *args, **kwarg):
@@ -77,7 +76,7 @@ def novo_pedido(opcoes, cliente):
         totaltempo = totaltempo + i.tempo
         valortotal = valortotal + i.valor
     
-    Cliente.n_pedido = numero
+
     fila_espera.append(Pedido(numero = numero, opcao = opcoes, tempot = totaltempo, vtotal = valortotal, cliente = cliente))
 
     if cliente.idade <= 65:
