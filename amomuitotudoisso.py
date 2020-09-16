@@ -1,3 +1,12 @@
+##################################################
+## Reescrito em Python com OO
+## Projeto "Amo Muito Tudo Isso" que foi feito em C++
+##################################################
+## Author: Marcelo Augusto Gonçalves Eliseu
+##################################################
+
+
+
 class Cliente:
     def __init__(self, *args, **kwarg):
         self.nome = kwarg.get("nome", "")
