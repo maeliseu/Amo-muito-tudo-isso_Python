@@ -25,6 +25,31 @@ fila_pref = []
 fila_espera = []
 opcao = []
 numero = 0
+
+# péssimo (1), ruim (2), mediano (3), bom(4) e ótimo (5)
+class Voto:
+    def __init__(self, *args, **kwarg):
+        self.pessimo = kwarg.get("pessimo",0)
+        self.ruim = kwarg.get("ruim",0)
+        self.mediano = kwarg.get("mediano",0)
+        self.bom = kwarg.get("bom",0)
+        self.otimo = kwarg.get("otimo",0)
+    
+    def pessimo():
+        self.pessimo = self.pessimo + 1
+
+    def ruim():
+        self.ruim = self.ruim + 1
+
+    def mediano():
+        self.mediano = self.mediano + 1
+
+    def bom():
+        self.bom = self.bom + 1
+
+    def otimo():
+        self.otimo = self.otimo + 1
+
 # 
 # opções
 # 
@@ -32,6 +57,8 @@ opcao.append(Opcao(op_numero = 1, nome = "HAMBURGUER", tempo = 6, valor = 20))
 opcao.append(Opcao(op_numero = 2, nome = "SUCO", tempo = 1, valor = 5))
 opcao.append(Opcao(op_numero = 3, nome = "SOBREMESA", tempo = 1, valor = 10))
 opcao.append(Opcao(op_numero = 4, nome = "HAMBURGUER+SUCO+SOBREMESA", tempo = 8, valor = 30))
+
+voto = Voto()
 
 def novo_cli(nome, idade):
     if idade <= 65:
@@ -105,17 +132,22 @@ printlistas()  # Printa as  filas
 davez = chama() # pega o primeiro da fila pref se não tiver pega o primeiro da normal
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[0], opcao[1]], cliente = davez)
+voto.bom
 
 printlistas() # Printa as  filas
 
 davez = chama()
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[3]], cliente = davez)
+voto.otimo
 
 printlistas() # Printa as  filas
 
 davez = chama()
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[1], opcao[2], opcao[0]], cliente = davez)
+voto.bom
 
 printlistas() # Printa as  filas
+
+print ("péssimo {0}, ruim {1}, mediano {2}, bom {3} e ótimo {4}".format(voto.pessimo,))
