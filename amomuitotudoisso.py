@@ -69,6 +69,7 @@ opcao.append(Opcao(op_numero = 4, nome = "HAMBURGUER+SUCO+SOBREMESA", tempo = 8,
 voto = Voto()
 
 def novo_cli(nome, idade):
+    print ("(( cliente {0} Cadastrado ))\n".format(nome))
     if idade <= 65:
         fila_normal.append(Cliente(nome = nome, idade = idade))
     else:
@@ -155,6 +156,20 @@ davez = chama()
 print ("+Fazendo Pedido para : {0}".format(davez.nome))
 novo_pedido(opcoes = [opcao[1], opcao[2], opcao[0]], cliente = davez)
 voto.votobom()
+
+printlistas() # Printa as  filas
+
+
+novo_cli(nome = "josefina", idade = 90)
+
+
+printlistas() # Printa as  filas
+
+
+davez = chama()
+print ("+Fazendo Pedido para : {0}".format(davez.nome))
+novo_pedido(opcoes = [opcao[3], opcao[2], opcao[1], opcao[0]], cliente = davez)
+voto.votopessimo()
 
 printlistas() # Printa as  filas
 
